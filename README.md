@@ -1,4 +1,4 @@
-# Project Title: ASP.NET Core Identity Server MVC Extension
+# Project Title: ASP.NET Core MVC Identity Extension
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## Introduction
 
-The ASP.NET Core Identity Server MVC Extension is an open-source solution designed to extend the functionality of ASP.NET Core Identity Server MVC. This project adds features such as authentication, role management, extended user fields, and profile photo functionality to your ASP.NET Core application.
+The ASP.NET Core MVC Identity Extension is an open-source solution designed to extend the functionality of ASP.NET Core Identity MVC classes. This project adds features such as authentication, role management, extended user fields, and profile photo functionality to your ASP.NET Core application.
 
 ## Getting Started
 
@@ -31,12 +31,12 @@ Before using this extension, make sure you have the following prerequisites:
 
 ### Installation
 
-To install the ASP.NET Core Identity Server MVC Extension, follow these steps:
+To install the ASP.NET Core MVC Identity Extension, follow these steps:
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/yourproject.git
+   git clone https://github.com/richardnwonah/AEII/blob/main/README.md
    ```
 
 2. Open the solution in your preferred development environment (e.g., Visual Studio).
