@@ -1,5 +1,6 @@
 using IdentityDemo.Areas.Identity.Data;
 using IdentityDemo.Data;
+using IdentityDemo.Helpers.ExceptionHandler;
 using IdentityDemo.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -87,6 +88,9 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.MapControllerRoute(
     name: "default",
