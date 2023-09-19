@@ -1,4 +1,5 @@
-﻿using IdentityDemo.Models;
+﻿using IdentityDemo.Helper.UserActivities;
+using IdentityDemo.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -18,4 +19,6 @@ public class IdentityDemoContext : IdentityDbContext<ApplicationUser>
 
         base.OnModelCreating(builder);
     }
+
+	public DbSet<UserActivity> UserActivities { get; set; }
 }

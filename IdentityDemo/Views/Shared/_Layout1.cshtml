@@ -1,0 +1,587 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!doctype html>
+<html class="fixed">
+	<head>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+		<!-- Basic -->
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+
+
+	@*	<script src="~/js/custom.js"></script>*@
+
+		<meta charset="UTF-8">
+
+		<title>Form Layouts | Porto Admin - Responsive HTML5 Template</title>
+		<meta name="keywords" content="HTML5 Admin Template" />
+		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- Web Fonts  -->
+		
+	
+	<link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="~/vendor/animate/animate.compat.css">
+		<link rel="stylesheet" href="~/vendor/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="~/vendor/boxicons/css/boxicons.min.css" />
+		<link rel="stylesheet" href="~/vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="~/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+	<link rel="stylesheet" href="~/vendor/select2/css/select2.css" />
+	<link rel="stylesheet" href="~/vendor/select2-bootstrap-theme/select2-bootstrap.min.css" />
+	<link rel="stylesheet" href="~/vendor/datatables/media/css/dataTables.bootstrap5.css" />
+		<link rel="stylesheet" href="~/vendor/jquery-ui/jquery-ui.css" />
+		<link rel="stylesheet" href="~/vendor/jquery-ui/jquery-ui.theme.css" />
+		<link rel="stylesheet" href="~/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css" />
+		<link rel="stylesheet" href="~/vendor/morris/morris.css" />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="~/css/theme.css" />
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="~/css/skins/default.css" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="~/css/custom.css">
+
+		<!-- Head Libs -->
+		<script src="~/vendor/modernizr/modernizr.js"></script>
+
+	<!-- Toastr CSS -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+
+	</head>
+	<body>
+		<section class="body">
+
+			<!-- start: header -->
+		
+			<header class="header">
+					 
+     
+				<div class="logo-container">
+					 <a class="logo" asp-area="" asp-controller="Home" asp-action="Index">					
+						<img src="~/NACA-banner-edited.png" width="100" height="35" alt="Porto Admin" />
+					</a>
+
+					<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+						<i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+					</div>
+
+				</div>
+
+				<!-- start: search & user box -->
+				<div class="header-right">
+@*
+					<form action="pages-search-results.html" class="search nav-form">
+						<div class="input-group">
+							<input type="text" class="form-control" name="q" id="q" placeholder="Search...">
+							<button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
+						</div>
+					</form>
+					 
+					<span class="separator"></span>*@
+
+					@*<ul class="notifications">
+						<li>
+							<a href="#" class="dropdown-toggle notification-icon" data-bs-toggle="dropdown">
+								<i class="bx bx-list-ol"></i>
+								<span class="badge">3</span>
+							</a>
+
+							<div class="dropdown-menu notification-menu large">
+								<div class="notification-title">
+									<span class="float-end badge badge-default">3</span>
+									Tasks
+								</div>
+
+								<div class="content">
+									<ul>
+										<li>
+											<p class="clearfix mb-1">
+												<span class="message float-start">Generating Sales Report</span>
+												<span class="message float-end text-dark">60%</span>
+											</p>
+											<div class="progress progress-xs light">
+												<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+											</div>
+										</li>
+
+										<li>
+											<p class="clearfix mb-1">
+												<span class="message float-start">Importing Contacts</span>
+												<span class="message float-end text-dark">98%</span>
+											</p>
+											<div class="progress progress-xs light">
+												<div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" style="width: 98%;"></div>
+											</div>
+										</li>
+
+										<li>
+											<p class="clearfix mb-1">
+												<span class="message float-start">Uploading something big</span>
+												<span class="message float-end text-dark">33%</span>
+											</p>
+											<div class="progress progress-xs light mb-1">
+												<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;"></div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle notification-icon" data-bs-toggle="dropdown">
+								<i class="bx bx-envelope"></i>
+								<span class="badge">4</span>
+							</a>
+
+							<div class="dropdown-menu notification-menu">
+								<div class="notification-title">
+									<span class="float-end badge badge-default">230</span>
+									Messages
+								</div>
+
+								<div class="content">
+									<ul>
+										<li>
+											<a href="#" class="clearfix">
+												<figure class="image">
+													<img src="" alt="Joseph Doe Junior" class="rounded-circle" />
+												</figure>
+												<span class="title">Joseph Doe</span>
+												<span class="message">Lorem ipsum dolor sit.</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="clearfix">
+												<figure class="image">
+													<img src="img/!sample-user.jpg" alt="Joseph Junior" class="rounded-circle" />
+												</figure>
+												<span class="title">Joseph Junior</span>
+												<span class="message truncate">Truncated message. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lacinia orci. Proin vestibulum eget risus non luctus. Nunc cursus lacinia lacinia. Nulla molestie malesuada est ac tincidunt. Quisque eget convallis diam, nec venenatis risus. Vestibulum blandit faucibus est et malesuada. Sed interdum cursus dui nec venenatis. Pellentesque non nisi lobortis, rutrum eros ut, convallis nisi. Sed tellus turpis, dignissim sit amet tristique quis, pretium id est. Sed aliquam diam diam, sit amet faucibus tellus ultricies eu. Aliquam lacinia nibh a metus bibendum, eu commodo eros commodo. Sed commodo molestie elit, a molestie lacus porttitor id. Donec facilisis varius sapien, ac fringilla velit porttitor et. Nam tincidunt gravida dui, sed pharetra odio pharetra nec. Duis consectetur venenatis pharetra. Vestibulum egestas nisi quis elementum elementum.</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="clearfix">
+												<figure class="image">
+													<img src="img/!sample-user.jpg" alt="Joe Junior" class="rounded-circle" />
+												</figure>
+												<span class="title">Joe Junior</span>
+												<span class="message">Lorem ipsum dolor sit.</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="clearfix">
+												<figure class="image">
+													<img src="img/!sample-user.jpg" alt="Joseph Junior" class="rounded-circle" />
+												</figure>
+												<span class="title">Joseph Junior</span>
+												<span class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lacinia orci. Proin vestibulum eget risus non luctus. Nunc cursus lacinia lacinia. Nulla molestie malesuada est ac tincidunt. Quisque eget convallis diam.</span>
+											</a>
+										</li>
+									</ul>
+
+									<hr />
+
+									<div class="text-end">
+										<a href="#" class="view-more">View All</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle notification-icon" data-bs-toggle="dropdown">
+								<i class="bx bx-bell"></i>
+								<span class="badge">3</span>
+							</a>
+
+							<div class="dropdown-menu notification-menu">
+								<div class="notification-title">
+									<span class="float-end badge badge-default">3</span>
+									Alerts
+								</div>
+
+								<div class="content">
+									<ul>
+										<li>
+											<a href="#" class="clearfix">
+												<div class="image">
+													<i class="fas fa-thumbs-down bg-danger text-light"></i>
+												</div>
+												<span class="title">Server is Down!</span>
+												<span class="message">Just now</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="clearfix">
+												<div class="image">
+													<i class="bx bx-lock bg-warning text-light"></i>
+												</div>
+												<span class="title">User Locked</span>
+												<span class="message">15 minutes ago</span>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="clearfix">
+												<div class="image">
+													<i class="fas fa-signal bg-success text-light"></i>
+												</div>
+												<span class="title">Connection Restaured</span>
+												<span class="message">10/10/2021</span>
+											</a>
+										</li>
+									</ul>
+
+									<hr />
+
+									<div class="text-end">
+										<a href="#" class="view-more">View All</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>*@
+				@if (SignInManager.IsSignedIn(User))
+				{
+					<span class="separator"></span>
+
+					<div id="userbox" class="userbox">
+						<a href="#" data-bs-toggle="dropdown">
+							<figure class="profile-picture">
+								<img src="" alt="@UserManager.GetUserName(User)" class="rounded-circle" data-lock-picture="img/!logged-user.jpg" />
+							</figure>
+							<div class="profile-info" data-lock-name="@UserManager.GetUserName(User)" data-lock-email="@UserManager.GetUserName(User)">
+
+
+
+
+
+
+
+								<span class="name">@UserManager.GetUserName(User)</span>
+								@*<span class="role">Administrator</span>*@
+							</div>
+
+							<i class="fa custom-caret"></i>
+						</a>
+
+						<div class="dropdown-menu">
+							<ul class="list-unstyled mb-2">
+								<li class="divider"></li>
+								<li>
+									<a role="menuitem" tabindex="-1" href="/Account/Myprofile"><i class="bx bx-user-circle"></i> My Profile</a>
+								</li>
+								<li>
+									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="bx bx-lock"></i> Lock Screen</a>
+								</li>
+
+								<li>
+									<form id="LogoutForm" method="post" asp-controller="Account" asp-action="Logout">
+										<button type="submit" role="menuitem" tabindex="-1" class="btn"><i class="bx bx-power-off"> Logout</i></button>
+									</form>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				}
+			</div>
+				<!-- end: search & user box -->
+			</header>
+			<!-- end: header -->
+
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+				<aside id="sidebar-left" class="sidebar-left">
+
+				    <div class="sidebar-header">
+				        <div class="sidebar-title">
+				            Navigation
+				        </div>
+				        <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+				            <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+				        </div>
+				    </div>
+
+				    <div class="nano">
+				        <div class="nano-content">
+				            <nav id="menu" class="nav-main" role="navigation">
+
+				                <ul class="nav nav-main">
+				                    <li>
+										 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">				                        
+				                            <i class="bx bx-home-alt" aria-hidden="true"></i>
+				                            <span>Dashboard</span>
+				                        </a>                        
+				                    </li>
+				                    <li class="nav-parent">
+				                        <a class="nav-link" href="#">
+				                            <i class="bx bx-layout" aria-hidden="true"></i>
+				                            <span>Generate Contract</span>
+				                        </a>
+				                       <ul class="nav nav-children">
+				       @*                    <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="ContractTemplate" asp-action="ContractTemplateList">Contract Templates</a>
+                        </li>*@
+						 <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="ContractTemplate2" asp-action="ContractTemplate2List">Supply of Equipment</a>
+                        </li>
+						 <li class="nav-item">
+                            <a class="nav-link" href="#">Professional Services</a>
+                        </li>
+						 <li class="nav-item">
+                            <a class="nav-link" href="#">Support and Maintenance</a>
+                        </li>
+						@*<li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Contract" asp-action="Index">Upload Contract</a>
+                        </li>*@
+				                        </ul>
+				                    </li>
+
+									 
+
+				                    <li>
+				                       <a class="nav-link" asp-area="" asp-controller="Contract" asp-action="Index">
+				                         @*   <span class="float-end badge badge-primary">182</span>*@
+				                            <i class="bx bx-layout" aria-hidden="true"></i>
+				                            <span>Upload Contract</span>
+				                        </a>                        
+				                    </li>
+								@*<li>
+									<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">
+										  <span class="float-end badge badge-primary">182</span>
+										<i class="fa fa-user" aria-hidden="true"></i>
+										<span>Create User</span>
+									</a>
+								</li>*@
+								<li>
+									<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">
+										@*   <span class="float-end badge badge-primary">182</span>*@
+										<i class="fa fa-user" aria-hidden="true"></i>
+										<span>Application User</span>
+									</a>
+									
+								</li>
+								<li>
+									<a class="nav-link" asp-area="" asp-controller="Vendor" asp-action="Index">
+										@*   <span class="float-end badge badge-primary">182</span>*@
+										<i class="fa fa-user" aria-hidden="true"></i>
+										<span>Vendor Profile</span>
+									</a>
+								</li>
+									<li>
+									<a class="nav-link" asp-area="" asp-controller="FundingSource" asp-action="fundingSourceList">
+										@*   <span class="float-end badge badge-primary">182</span>*@
+										<i class="bx bx-file" aria-hidden="true"></i>
+										<span>Funding Source</span>
+									</a>
+								</li>
+								<li>
+									<a class="nav-link" asp-area="" asp-controller="Category" asp-action="Index">
+										@*   <span class="float-end badge badge-primary">182</span>*@
+										<i class="bx bx-file" aria-hidden="true"></i>
+										<span>Category</span>
+									</a>
+								</li>
+
+								<li class="nav-parent">
+									<a class="nav-link" href="#">
+										<i class="bx bx-file" aria-hidden="true"></i>
+										<span>Reports</span>
+									</a>
+									<ul class="nav nav-children">
+										
+										<li class="nav-item">
+											<a class="nav-link" asp-area="" asp-controller="Report" asp-action="ReportList">Based on Submission Date</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" asp-area="" asp-controller="Report" asp-action="ReportListExpiry">Based on Expiring Date</a>
+										</li>
+									</ul>
+								</li>
+
+
+								@*<li>
+									<a class="nav-link" href="/hangfire">
+										
+										<i class="bx bx-layout" aria-hidden="true"></i>
+										<span>Schedule Job</span>
+									</a>
+								</li>*@
+				                    
+
+				                </ul>
+				            </nav>
+
+				            <hr class="separator" />
+
+				            
+				        </div>
+
+				        <script>
+				            // Maintain Scroll Position
+				            if (typeof localStorage !== 'undefined') {
+				                if (localStorage.getItem('sidebar-left-position') !== null) {
+				                    var initialPosition = localStorage.getItem('sidebar-left-position'),
+				                        sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+
+				                    sidebarLeft.scrollTop = initialPosition;
+				                }
+				            }
+				        </script>
+
+				    </div>
+
+				</aside>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body card-margin">
+					<header class="page-header">
+						
+
+						@*<div class="right-wrapper text-end">
+							<ol class="breadcrumbs">
+								<li>
+									<a href="index.html">
+										<i class="bx bx-home-alt"></i>
+									</a>
+								</li>
+
+								<li><span>Forms</span></li>
+
+								<li><span>Layouts</span></li>
+
+							</ol>
+
+							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+							
+						</div>*@
+					</header>
+					
+					<!-- start: page -->
+					 <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+						<partial name="_notification" />
+        </main>
+    </div>
+
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="form-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+					<!-- end: page -->
+				</section>
+			</div>
+
+			
+	
+		@*		}
+			else
+			{*@
+   <div class="" style="float:right">
+       @* <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>*@
+  
+        @*<a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>*@
+		</div>
+		 @RenderBody()
+			}
+		</section>
+	
+	
+		<!-- Vendor -->
+	
+	
+	@*<script src="~/lib/jquery/dist/jquery.js"></script>
+	<script src="~/vendor/jquery/jquery.js"></script>*@
+	@*<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>*@
+	@*<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+		
+		<script src="~/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="~/vendor/popper/umd/popper.min.js"></script>
+		<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="~/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="~/vendor/common/common.js"></script>
+		<script src="~/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="~/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+		<script src="~/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-loading-overlay/2.1.7/loadingoverlay.js" integrity="sha512-ed5NxlZLm3zMfelJNuApFJquEBi9WhPoMe80a+8B7Y+VSM5aqNmkOkq79Egoy03tObr3gOdbrdbcpSUgX9mxBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<!-- Specific Page Vendor -->
+		 <script src="~/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+		<!-- Theme Base, Components and Settings -->
+		<script src= "~/js/Customscript/AutoHideAlert.js"></script>
+		<script src="~/js/theme.js"></script>
+
+		<!-- Theme Custom -->
+		<script src="~/js/custom.js"></script>
+
+		<!-- Theme Initialization Files -->
+		<script src="~/js/theme.init.js"></script>
+		
+
+
+
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+    @*<script src= "~/js/Customscript/electionValidation.js"></script>*@
+   
+ <script src="~/js/examples/examples.validation.js"></script>
+ <script src="~/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+@* <script src= "~/js/Customscript/election.js"></script>*@
+ <script src="~/vendor/select2/js/select2.js"></script>
+		<script src="~/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+		<script src="~/vendor/datatables/media/js/dataTables.bootstrap5.min.js"></script>
+		<script src="~/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/dataTables.buttons.min.js"></script>
+		<script src="~/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.bootstrap4.min.js"></script>
+		<script src="~/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.html5.min.js"></script>
+		<script src="~/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.print.min.js"></script>
+		<script src="~/vendor/datatables/extras/TableTools/JSZip-2.5.0/jszip.min.js"></script>
+		@*<script src="~/vendor/datatables/extras/TableTools/pdfmake-0.1.32/pdfmake.min.js"></script>*@
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+		<script src="~/vendor/datatables/extras/TableTools/pdfmake-0.1.32/vfs_fonts.js"></script>
+	<script src="~/js/examples/examples.datatables.default.js"></script>
+	<script src="~/js/examples/examples.datatables.row.with.details.js"></script>
+	<script src="~/js/examples/examples.datatables.tabletools.js"></script>
+		 @await RenderSectionAsync("Scripts", required: false)
+	</body>
+</html>

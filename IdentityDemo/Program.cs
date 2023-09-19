@@ -1,13 +1,10 @@
 using IdentityDemo.Areas.Identity.Data;
 using IdentityDemo.Data;
+using IdentityDemo.Helper.UserActivities;
 using IdentityDemo.Helpers.ExceptionHandler;
 using IdentityDemo.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using static System.Formats.Asn1.AsnWriter;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,18 +12,26 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<IdentityDemoContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString, options =>
+    {
+        options.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(5),
+            errorNumbersToAdd: new List<int>() { }
+            );
+    }));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<IdentityDemoContext>();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(opt=> opt.Filters.Add(typeof(UserActivityFilter)));
+
 
 var app = builder.Build();
 
-    var host = app.Services.GetRequiredService<IServiceScopeFactory>();
+var host = app.Services.GetRequiredService<IServiceScopeFactory>();
 
 
 

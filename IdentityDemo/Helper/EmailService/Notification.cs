@@ -10,7 +10,7 @@ public class Notification
         {
             _configuration = configuration;
         }
-        public void MilestoneMail(string email, string Firstname)//properties to be added or we can use getter and setter method
+        public void Mail(string email, string Firstname)//properties to be added or we can use getter and setter method
         {
             string body;
 
