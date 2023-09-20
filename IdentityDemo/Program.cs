@@ -25,7 +25,19 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<IdentityDemoContext>();
+    .AddEntityFrameworkStores<IdentityDemoContext>()
+    .AddDefaultTokenProviders(); 
+builder.Services.Configure<DataProtectionTokenProviderOptions>(opts => opts.TokenLifespan = TimeSpan.FromHours(10));
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequiredLength = 8;
+    options.Password.RequireLowercase = true;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(20);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    //options.SignIn.RequireConfirmedAccount = true;
+    //options.User.RequireUniqueEmail = true;
+});
 builder.Services.AddControllersWithViews(opt=> opt.Filters.Add(typeof(UserActivityFilter)));
 
 
