@@ -26,7 +26,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<IdentityDemoContext>()
-    .AddDefaultTokenProviders(); 
+    .AddDefaultTokenProviders();
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opts => opts.TokenLifespan = TimeSpan.FromHours(10));
 
 builder.Services.Configure<IdentityOptions>(options =>
@@ -38,7 +38,26 @@ builder.Services.Configure<IdentityOptions>(options =>
     //options.SignIn.RequireConfirmedAccount = true;
     //options.User.RequireUniqueEmail = true;
 });
-builder.Services.AddControllersWithViews(opt=> opt.Filters.Add(typeof(UserActivityFilter)));
+builder.Services.AddControllersWithViews(opt => opt.Filters.Add(typeof(UserActivityFilter)));
+
+//builder.Services.AddAuthentication()
+//    .AddMicrosoftAccount(microsoftOptions =>
+//    {
+//        microsoftOptions.ClientId = builder.Configuration.GetConnectionString("Authentication:Microsoft:ClientId");
+//        microsoftOptions.ClientSecret = builder.Configuration.GetConnectionString("Authentication:Microsoft:ClientSecret");
+//    })
+//    .AddTwitter(twitter =>
+//    {
+//        twitter.ConsumerKey = builder.Configuration.GetConnectionString("Authentication:Twitter:ConsumerKey");
+//        twitter.ConsumerSecret = builder.Configuration.GetConnectionString("Authentication:Twitter:ConsumerSecret");
+//    })
+//    .AddFacebook(facebook =>
+//    {
+//        facebook.AppId = builder.Configuration.GetConnectionString("Authentication:Facebook:AppId");
+//        facebook.AppSecret = builder.Configuration.GetConnectionString("Authentication:Facebook:AppSecret");
+//    });
+
+
 
 
 var app = builder.Build();
