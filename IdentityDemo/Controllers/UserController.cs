@@ -12,7 +12,7 @@ namespace IdentityDemo.Controllers
 		}
 		public IActionResult UserActivity()
 		{
-			var userActivity = _demoContext.UserActivities.FirstOrDefault();
+			var userActivity = _demoContext.UserActivities.ToList();
 			return View(userActivity);
 		}
 	}
